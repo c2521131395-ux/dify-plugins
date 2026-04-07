@@ -1,0 +1,36 @@
+version: 0.0.1
+type: "plugin"
+author: "c2521131395-ux"
+name: "Three-rate-bill-automation"
+label:
+  en_US: "Three-rate-bill-automation"
+created_at: "2026-03-12T08:03:44.658609186Z"
+icon: "icon.svg"
+resource:
+  memory: 1048576
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage: 
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - "provider/Three-Rate Bill Automation.yml"
+meta:
+  version: 0.0.1
+  arch:
+    - "amd64"
+    - "arm64"
+  runner:
+    language: "python"
+    version: "3.11"
+    entrypoint: "main"
+privacy: "./privacy.md"
