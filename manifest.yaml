@@ -4,6 +4,8 @@ author: "c2521131395-ux"
 name: "Three-rate-bill-automation"
 label:
   en_US: "Three-rate-bill-automation"
+description:                               # <--- ADDED THIS SECTION
+  en_US: "Automation tool for processing three-rate bills."
 created_at: "2026-03-12T08:03:44.658609186Z"
 icon: "icon.svg"
 resource:
