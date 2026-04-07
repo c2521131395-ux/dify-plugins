@@ -1,0 +1,1343 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Three-Rate Bill Automation
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: kurokobo/file_tools:0.0.2@8bde7b4d2c30cf22e8f6ce851572af244f7a5776addab94330b820dc2160726c
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: qiangxinglin/excel_tools:0.0.5@81147a24fa4dc871759a759bda9cf024efdba3c525815e40daba74bd7ee89c4b
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: inlei/mistral_ocr:0.0.1@6d51d18e999e6609b26202a409108834c89d5f33475ff1261cd1b9ccb36ab265
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.3.4@3345b596ee5117d9304097feaee866f05ffaf0d76a790fb07acd8b99f6c87cb3
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.7.20@de0063a630a6d1b2c025fb84f3462ba5151fb60618309cd595c3f4711b1df847
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 20
+        audio_file_size_limit: 50
+        batch_count_limit: 50
+        file_size_limit: 150
+        file_upload_limit: 20
+        image_file_batch_limit: 100
+        image_file_size_limit: 200
+        single_chunk_attachment_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 100
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        sourceType: llm
+        targetType: llm
+      id: 1773676158697-source-1773761388910-target
+      selected: false
+      source: '1773676158697'
+      sourceHandle: source
+      target: '1773761388910'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1774107843985-source-1774107933200-target
+      selected: false
+      source: '1774107843985'
+      sourceHandle: source
+      target: '1774107933200'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1774107933200-source-1774107984499-target
+      selected: false
+      source: '1774107933200'
+      sourceHandle: source
+      target: '1774107984499'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1774107984499-source-1774107996657-target
+      selected: false
+      source: '1774107984499'
+      sourceHandle: source
+      target: '1774107996657'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1773676143894start-source-1774182343046-target
+      source: 1773676143894start
+      sourceHandle: source
+      target: '1774182343046'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        sourceType: tool
+        targetType: template-transform
+      id: 1774182343046-source-1774182359840-target
+      source: '1774182343046'
+      sourceHandle: source
+      target: '1774182359840'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        sourceType: template-transform
+        targetType: llm
+      id: 1774182359840-source-1773676158697-target
+      source: '1774182359840'
+      sourceHandle: source
+      target: '1773676158697'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: llm
+      id: 1773676143894-source-1774107843985-target
+      source: '1773676143894'
+      sourceHandle: source
+      target: '1774107843985'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1772387922489-source-17742659170060-target
+      source: '1772387922489'
+      sourceHandle: source
+      target: '17742659170060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 17742659170060-source-1774107843985-target
+      selected: false
+      source: '17742659170060'
+      sourceHandle: source
+      target: '1774107843985'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1769935062552-source-1774334635779-target
+      source: '1769935062552'
+      sourceHandle: source
+      target: '1774334635779'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1774334635779-source-17742659170060-target
+      source: '1774334635779'
+      sourceHandle: source
+      target: '17742659170060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1769935062552-source-1772387922489-target
+      source: '1769935062552'
+      sourceHandle: source
+      target: '1772387922489'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: iteration
+      id: 1769935062552-source-1773676143894-target
+      source: '1769935062552'
+      sourceHandle: source
+      target: '1773676143894'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: Returned_Tender
+          max_length: 100
+          options: []
+          placeholder: ''
+          required: false
+          type: file-list
+          variable: Returned_Tender
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: Template
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: file
+          variable: Template
+      height: 135
+      id: '1769935062552'
+      position:
+        x: -248.08208247537567
+        y: 368.39584429109243
+      positionAbsolute:
+        x: -248.08208247537567
+        y: 368.39584429109243
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Upload file.
+            ja_JP: Upload file.
+            pt_BR: Upload file.
+            zh_Hans: 上传的文件.
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: 文件
+          llm_description: Upload file.
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        params:
+          file: ''
+        plugin_id: qiangxinglin/excel_tools
+        plugin_unique_identifier: qiangxinglin/excel_tools:0.0.5@81147a24fa4dc871759a759bda9cf024efdba3c525815e40daba74bd7ee89c4b
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=eb212de4-1e40-4d54-a5a4-7b61b9bec0dc&filename=633fbc546fec8855ed43a00343339462654d57473a79fc63b2858c1462470672.svg
+        provider_id: qiangxinglin/excel_tools/excel_tools
+        provider_name: qiangxinglin/excel_tools/excel_tools
+        provider_type: builtin
+        selected: false
+        title: Excel to Json
+        tool_configurations: {}
+        tool_description: Convert Excel to Json.
+        tool_label: Excel to Json
+        tool_name: excel2json
+        tool_node_version: '2'
+        tool_parameters:
+          file:
+            type: variable
+            value:
+            - '1769935062552'
+            - Template
+        type: tool
+      height: 52
+      id: '1772387922489'
+      position:
+        x: 453.25342718173613
+        y: 439.02144138197394
+      positionAbsolute:
+        x: 453.25342718173613
+        y: 439.02144138197394
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 252.68049208922707
+        is_parallel: true
+        iterator_input_type: array[file]
+        iterator_selector:
+        - '1769935062552'
+        - Returned_Tender
+        output_selector:
+        - '1773761388910'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1773676143894start
+        title: Iteration
+        type: iteration
+        width: 1290
+      height: 253
+      id: '1773676143894'
+      position:
+        x: 48.5132747533122
+        y: 621.5516941786061
+      positionAbsolute:
+        x: 48.5132747533122
+        y: 621.5516941786061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1290
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1773676143894start
+      parentId: '1773676143894'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 72.5132747533122
+        y: 689.5516941786061
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1773676143894'
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Upload a single file for OCR processing. Only one document can
+              be processed at a time. Supports PDF documents and common image formats.
+            ja_JP: Upload a single file for OCR processing. Only one document can
+              be processed at a time. Supports PDF documents and common image formats.
+            pt_BR: Upload a single file for OCR processing. Only one document can
+              be processed at a time. Supports PDF documents and common image formats.
+            zh_Hans: 上传单个文件进行 OCR 处理。每次只能处理一个文档。支持 PDF 文档和常见图像格式。
+          label:
+            en_US: Upload File
+            ja_JP: Upload File
+            pt_BR: Upload File
+            zh_Hans: 上传文件
+          llm_description: ''
+          max: null
+          min: null
+          name: file_path
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: '0'
+          form: llm
+          human_description:
+            en_US: Specific pages to process (e.g., "0,2,4-7"). For PDF documents
+              only.
+            ja_JP: Specific pages to process (e.g., "0,2,4-7"). For PDF documents
+              only.
+            pt_BR: Specific pages to process (e.g., "0,2,4-7"). For PDF documents
+              only.
+            zh_Hans: 要处理的特定页面（例如："0,2,4-7"）。仅适用于 PDF 文档。
+          label:
+            en_US: Pages
+            ja_JP: Pages
+            pt_BR: Pages
+            zh_Hans: 页面
+          llm_description: ''
+          max: null
+          min: null
+          name: pages
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of images to extract from the document.
+            ja_JP: Maximum number of images to extract from the document.
+            pt_BR: Maximum number of images to extract from the document.
+            zh_Hans: 从文档中提取的最大图像数量。
+          label:
+            en_US: Image Limit
+            ja_JP: Image Limit
+            pt_BR: Image Limit
+            zh_Hans: 图像限制
+          llm_description: ''
+          max: null
+          min: null
+          name: image_limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 100
+          form: llm
+          human_description:
+            en_US: Minimum size threshold for extracting images (default 100px). Smaller
+              images are ignored.
+            ja_JP: Minimum size threshold for extracting images (default 100px). Smaller
+              images are ignored.
+            pt_BR: Minimum size threshold for extracting images (default 100px). Smaller
+              images are ignored.
+            zh_Hans: 提取图像的最小尺寸阈值（默认 100px），小于该尺寸的将被忽略。
+          label:
+            en_US: Image Minimum Size
+            ja_JP: Image Minimum Size
+            pt_BR: Image Minimum Size
+            zh_Hans: 图像最小尺寸
+          llm_description: ''
+          max: null
+          min: null
+          name: image_min_size
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          file_path: ''
+          image_limit: ''
+          image_min_size: ''
+          pages: ''
+        plugin_id: inlei/mistral_ocr
+        plugin_unique_identifier: inlei/mistral_ocr:0.0.1@6d51d18e999e6609b26202a409108834c89d5f33475ff1261cd1b9ccb36ab265
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=eb212de4-1e40-4d54-a5a4-7b61b9bec0dc&filename=5093ee1e6b59e834b362a8d5ad5967ec35f78a9320415ceff640b7de39533fc3.svg
+        provider_id: inlei/mistral_ocr/mistral_ocr
+        provider_name: inlei/mistral_ocr/mistral_ocr
+        provider_type: builtin
+        selected: true
+        title: Mistral OCR
+        tool_configurations: {}
+        tool_description: Mistral OCR is a powerful document OCR processor that extracts
+          text and structured content from PDF documents and images while maintaining
+          document structure and hierarchy. It preserves formatting like headers,
+          paragraphs, lists and tables, and returns results in markdown format for
+          easy parsing and rendering.
+        tool_label: Mistral OCR
+        tool_name: mistral_ocr_tool
+        tool_node_version: '2'
+        tool_parameters:
+          file_path:
+            type: variable
+            value:
+            - '1773676143894'
+            - item
+          image_limit:
+            type: constant
+            value: null
+          image_min_size:
+            type: constant
+            value: 100
+          pages:
+            type: mixed
+            value: 0-1000
+        type: tool
+      height: 52
+      id: '1774182343046'
+      parentId: '1773676143894'
+      position:
+        x: 127.03143313302087
+        y: 65.82919044422411
+      positionAbsolute:
+        x: 175.54470788633307
+        y: 687.3808846228302
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-5.4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 2365f3f6-4638-45af-9600-e333b9c76482
+          role: system
+          text: "You are a document-structure extraction assistant.\n\nYour task is\
+            \ to process OCR-converted Markdown text from a multi-page tender document\
+            \ returned by a tenderer.\n\nThe document may contain these page types:\n\
+            1. Cover page\n2. Description page(s)\n3. Pricing page(s)\n4. Summary\
+            \ of tender page(s)\n\nRules about page types:\n- Cover page may or may\
+            \ not exist.\n- Description page(s) may or may not exist.\n- Pricing page(s)\
+            \ must exist.\n- Summary of tender page(s) may or may not exist.\n\nPage\
+            \ identification rules:\n\n1. Cover page (s)/ Section cover page (s)\n\
+            - A pure cover or title page.\n- May include in the first page of the\
+            \ document, and may also appear in the middle of the document\n- Usually\
+            \ contains only document title or section title, tender/project name,\
+            \ tender number, contractor/tenderer name, submission wording, dates,\
+            \ logos, or decorative formatting.\n- Does not contain pricing table rows.\n\
+            - Does not contain bill-of-quantities style line items.\n\n2. Description\
+            \ page\n- Contains only descriptive paragraphs, notes, instructions, preliminaries,\
+            \ scope text, conditions, or other prose-heavy content.\n- May contain\
+            \ headings or bullet points.\n- Does not contain any pricing table rows.\n\
+            - Does not contain structured itemized pricing columns such as quantity,\
+            \ unit, unit rate, amount, or total in line-item form.\n- Does not contain\
+            \ information of \"quantity\", \"unit\", \"unit rate\", or \"Total amount\"\
+            \ of any item.\n-Whenever you classify a description page, you must read\
+            \ the markdown of the page again to comfirm it does not include any pricing\
+            \ table or pricing information of any item.\n\n3. Pricing page\n- Contains\
+            \ line items for pricing, usually in table-like or row-like form.\n- Often\
+            \ includes fields such as:\n  - item number\n  - item description/specification\n\
+            \  - quantity\n  - unit\n  - unit rate\n  - amount\n  - total\n- A page\
+            \ should be classified as a pricing page if it contains itemized tender/pricing\
+            \ rows, or it explicitly contains quantity, unit, unit rate, and total\
+            \ amount columns, even if OCR formatting is messy.\n- Pricing pages must\
+            \ be preserved.\n\n4. Summary of tender page\n- Usually contains a heading\
+            \ like \"summary of tender\", \"tender summary\", \"summary\", \"grand\
+            \ summary\", or similar.\n- Usually contains totals, subtotal lines, carried\
+            \ forward totals, section totals, grand total, lump sum, contract sum,\
+            \ or dollar/currency amounts.\n- Must include at least one item\n- Usually\
+            \ does NOT contain normal pricing columns such as quantity, unit, and\
+            \ unit rate for many item rows.\n- Do not mix with the section title page\
+            \ of summary of tender (i.e. If the page consists of a title of \"summary\
+            \ of tender\" without any table or total amount, that is a cover page\
+            \ instead of summary of tender page)\n- Summary pages must be preserved\
+            \ separately from pricing pages.\n\nPrimary task:\n1. Remove all cover\
+            \ pages.\n2. Remove all description-only pages.\n3. Keep only:\n   - pricing\
+            \ pages\n   - summary of tender pages\n4. Renumber the remaining kept\
+            \ pages sequentially in their retained order:\n   - Page 1\n   - Page\
+            \ 2\n   - Page 3\n   - etc.\n5. Output pricing pages and summary pages\
+            \ separately.\n\nImportant classification rules:\n- If a page has line-item\
+            \ pricing structure, classify it as a pricing page, even if it also contains\
+            \ some notes.\n- If a page mainly contains totals/summary information\
+            \ and lacks normal pricing columns/rows, classify it as a summary page.\n\
+            - If uncertain between description and pricing, prefer pricing only when\
+            \ there is clear evidence of itemized pricing rows.\n- If uncertain between\
+            \ pricing and summary, use presence of quantity/unit/unit rate/itemized\
+            \ rows to identify pricing; use totals-focused layout/title to identify\
+            \ summary.\n- Do not invent content.\n- Preserve OCR text exactly as much\
+            \ as possible for each retained page.\n- Keep page content grouped by\
+            \ page.\n- Do not merge pages.\n- Do not omit retained pages.\n- Do not\
+            \ add explanations.\n\nInput assumptions:\n- The input will be OCR Markdown\
+            \ from a multi-page document.\n- Page boundaries may be explicitly marked\
+            \ or may need to be inferred from the provided page separators.\n- Use\
+            \ the provided page order as the original document order.\n\nOutput requirements:\n\
+            - Return ONLY valid JSON.\n- No Markdown fences.\n- No comments.\n- No\
+            \ explanatory text.\n- The JSON must have exactly this top-level structure:\n\
+            {\n  \"pricing_pages\": {\n    \"Page 1\": [...],\n    \"Page 2\": [...],\n\
+            \    \"Page 3\": [...]\n  },\n  \"summary_pages\": {\n    \"Page 4\":\
+            \ [...],\n    \"Page 5\": [...]\n  }\n}\n\nAdditional output rules:\n\
+            - Each page value must be an array of strings.\n- Each array contains\
+            \ the OCR text lines of that retained page in original reading order.\n\
+            - If there are no summary pages, return:\n  \"summary_pages\": {}\n- If\
+            \ all retained pages before a summary page are pricing pages, numbering\
+            \ still continues sequentially across both sections.\n- Example: pricing\
+            \ pages may be Page 1 to Page 12, and summary pages may begin at Page\
+            \ 13.\n- Never include removed cover or description pages in the output."
+        - id: d7b152ee-d533-4e11-b975-2b8ffe2a7668
+          role: user
+          text: "Process the following OCR Markdown from a returned tender document.\n\
+            \nYour tasks:\n1. Identify and remove all cover pages.\n2. Identify and\
+            \ remove all description-only pages.\n3. Keep only pricing pages and summary\
+            \ of tender pages.\n4. Renumber the kept pages sequentially as Page 1,\
+            \ Page 2, Page 3, etc. based on their order after filtering.\n5. Return\
+            \ only valid JSON in the required structure.\n\nClassification guidance:\n\
+            - Pricing pages usually contain itemized rows with fields like item number,\
+            \ description/specification, quantity, unit, unit rate, amount, or total.\n\
+            - Summary pages usually contain totals, subtotal/grand total/contract\
+            \ sum/currency fields and often a title such as \"summary of tender\"\
+            , while lacking detailed quantity/unit/unit-rate item rows.\n- Cover and\
+            \ description-only pages must be excluded.\n\nOutput format:\n{\n  \"\
+            pricing_pages\": {\n    \"Page 1\": [\"line 1\", \"line 2\", \"...\"],\n\
+            \    \"Page 2\": [\"line 1\", \"line 2\", \"...\"]\n  },\n  \"summary_pages\"\
+            : {\n    \"Page 13\": [\"line 1\", \"line 2\", \"...\"]\n  }\n}\n\nImportant:\n\
+            - Return ONLY valid JSON.\n- Each page must be an array of strings.\n\
+            - Preserve retained page text as OCR lines in reading order.\n- Do not\
+            \ summarize.\n- Do not explain.\n- Do not include removed pages.\n\nOCR\
+            \ Markdown input:\n{{#1774182359840.output#}}"
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              pricing_pages:
+                type: string
+              summary_pages:
+                type: string
+            required: []
+            type: object
+        structured_output_enabled: true
+        title: Clear Pages
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1773676158697'
+      parentId: '1773676143894'
+      position:
+        x: 721.4905756570248
+        y: 65
+      positionAbsolute:
+        x: 770.003850410337
+        y: 686.5516941786061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-5.4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 7525b25c-2e41-4d63-a0cb-650fbf7a0394
+          role: system
+          text: "You are a tender pricing table extraction assistant.\n\nYour input\
+            \ is JSON produced by a previous node with this structure:\n{\n  \"pricing_pages\"\
+            : {\n    \"Page 1\": [\"...\"],\n    \"Page 2\": [\"...\"]\n  },\n  \"\
+            summary_pages\": {\n    \"Page 13\": [\"...\"]\n  }\n}\n\nYour task is\
+            \ to extract every pricing table row from each page inside \"pricing_pages\"\
+            \ and \"summary_pages\" respectively.\n\nExtraction goal:\n- For each\
+            \ page, create a JSON array of pricing table items.\n- For each row/item\
+            \ on the pricing pages, record:\n  - item_name\n  - quantity\n  - unit\n\
+            \  - unit_rate\n  - total_amount\n\n- For each row/item on the summary\
+            \ pages, record:\n  - item_name\n  - total_amount\n\nCore rules:\n1. Process\
+            \ \"pricing_pages\" firstly, then \"summary_pages\".\n2. Keep the original\
+            \ row order exactly as it appears on each page.\n3. Never delete any pricing\
+            \ item row, even if OCR is messy or some fields are unclear.\n4. Extract\
+            \ all item rows on every pricing page.\n5. Preserve page separation. Do\
+            \ not merge pages.\n6. Do not infer values that are not present.\n7. If\
+            \ a field is missing, unreadable, or not confidently identifiable, use\
+            \ null.\n8. If a page has no extractable pricing rows, return an empty\
+            \ array for that page.\n9. Do not add commentary or explanations.\n10.\
+            \ Quantity, unit rate, and total amount must be numbers only, while unit\
+            \ is a text string (e.g.: no., each, item, m,  etc) without any number\n\
+            \nRow identification guidance:\n- A pricing row usually belongs to an\
+            \ itemized tender table.\n- Rows may contain item number, description/specification,\
+            \ quantity, unit, unit rate, amount, total, or similar.\n- \"item_name\"\
+            \ means the item description/specification/name as written in the pricing\
+            \ table.\n- Ignore headers, repeated table headers, page footers, carry-forward\
+            \ labels, and non-item notes unless they are clearly part of an item row.\n\
+            - Do not drop an item just because description text wraps across multiple\
+            \ OCR lines.\n- If one item spans multiple lines, combine the relevant\
+            \ description text into a single \"item_name\" whenever possible.\n- If\
+            \ a row appears to continue from the previous line(s), merge them into\
+            \ the same item instead of creating duplicate items.\n- Amount-like values\
+            \ may appear with commas, decimals, currency symbols, or OCR noise.\n\
+            - \"total_amount\" means the row amount/extended amount for that item,\
+            \ not page grand total.\n\nOutput requirements:\n- Return ONLY valid JSON.\n\
+            - The output must be a single JSON object.\n- Top-level keys must be the\
+            \ pricing page names from the input, such as \"Page 1\", \"Page 2\", etc.\n\
+            - Each page key must map to an array.\n- For pricing pages, each array\
+            \ element must be an object with exactly these keys:\n  - \"item_name\"\
+            \n  - \"quantity\"\n  - \"unit\"\n  - \"unit_rate\"\n  - \"total_amount\"\
+            \n- For summary pages, each array element must be an object with exactly\
+            \ these keys:\n  - \"item_name\"\n  - \"total_amount\"\n- Use string values\
+            \ exactly as extracted where possible.\n- Use null when not available.\n\
+            \nExample output:\n{\n\"pricing_pages\":\n{\n  \"Page 1\": [\n    {\n\
+            \      \"item_name\": \"Excavate trench in soil\",\n      \"quantity\"\
+            : \"10\",\n      \"unit\": \"m\",\n      \"unit_rate\": \"25.00\",\n \
+            \     \"total_amount\": \"250.00\"\n    },\n    {\n      \"item_name\"\
+            : \"Provide and install valve\",\n      \"quantity\": \"3\",\n      \"\
+            unit\": \"nr\",\n      \"unit_rate\": \"100.00\",\n      \"total_amount\"\
+            : \"300.00\"\n    }\n  ],\n  \"Page 2\": [\n    {\n      \"item_name\"\
+            : \"Lump sum preliminaries\",\n      \"quantity\": null,\n      \"unit\"\
+            : null,\n      \"unit_rate\": null,\n      \"total_amount\": \"1,500.00\"\
+            \n    }\n  ]\n},\n\"summary_pages\":\n{\n\"Page 3\": [\n    {\n      \"\
+            item_name\": \"Excavate trench in soil\",\n      \"quantity\": \"10\"\
+            ,\n      \"unit\": \"m\",\n      \"unit_rate\": \"25.00\",\n      \"total_amount\"\
+            : \"250.00\"\n    }\n  ]\n}\n}"
+        - id: dd9b9330-8f07-4cc4-b719-5edac0924235
+          role: user
+          text: "Extract pricing table rows from the input JSON.\n\nInstructions:\n\
+            - Process the \"pricing_pages\" section firstly, then process \"summary_pages\"\
+            .\n- For each page, extract every pricing item row in original order.\n\
+            - For each item row on pricing page, output:\n  - \"item_name\"\n  - \"\
+            quantity\"\n  - \"unit\"\n  - \"unit_rate\"\n  - \"total_amount\"\n- For\
+            \ each item row on summary page, output:\n  - \"item_name\"\n  - \"total_amount\"\
+            \n- Never delete any item row.\n- If a field is missing or unreadable,\
+            \ use null.\n- Return ONLY valid JSON.\n\nInput JSON: {{#1773676158697.text#}}"
+        selected: false
+        title: Extract Rows
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1773761388910'
+      parentId: '1773676143894'
+      position:
+        x: 1032
+        y: 65
+      positionAbsolute:
+        x: 1080.513274753312
+        y: 686.5516941786061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.1-flash-lite-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 17a18325-e6a8-4c08-86da-34abf323f89b
+          role: system
+          text: "You are a precise data-mapping assistant.\n\nYour task is to fill\
+            \ a spreadsheet-like JSON array template using values from a pricing JSON\
+            \ array. Never delete any item in the spreadsheet-like JSON array.\n\n\
+            You will receive:\n1. A JSON array representing a spreadsheet-like pricing\
+            \ table template.\n2. One or more JSON array representing pricing data\
+            \ for the same items returned from one or more tenderers\n\nImportant\
+            \ rules:\n-  Both JSON arrays include lists called \"Page 1\", \"Page\
+            \ 2\", etc. Assume the page. The items in the same page are identical,\
+            \ but column names may differ.\n- In the spreadsheet-like JSON array,\
+            \ the fields corresponding to quantity, unit, unit rate, and total amount\
+            \ are currently null. You need to fill in the quantity, unit, unit rate,\
+            \ and total amount for each item on each page based on the pricing data.\n\
+            - These field names may not appear exactly as \"quantity\", \"unit\",\
+            \ \"unit rate\", or \"total amount ($)\". You must infer the correct target\
+            \ fields from context, naming similarity, and table structure.\n- If multiple\
+            \ sets of \"quantity\", \"unit\", \"unit rate\", and \"total amount ($)\"\
+            \ key exist, fill in the first set of \"quantity\", \"unit\", \"unit rate\"\
+            , and \"total amount ($)\" key for the pricing data in the first JSON\
+            \ array, then fill in the second set of \"quantity\", \"unit\", \"unit\
+            \ rate\", and \"total amount ($)\" key for the pricing data in the second\
+            \ JSON array, etc.\n- Match the page number firstly, then match rows by\
+            \ item identity, even if key names differ slightly.\n- Copy only the following\
+            \ values from the pricing data JSON array into the spreadsheet-like JSON\
+            \ array:\n  - quantity\n  - unit\n  - unit rate\n  - total amount\n- Preserve\
+            \ all other fields exactly as they are.\n- Do not change item names or\
+            \ descriptions.\n- If multiple candidate fields seem possible, choose\
+            \ the most contextually appropriate one.\n- If a value is missing in the\
+            \ pricing JSON array for an item, leave the corresponding target field\
+            \ as null.\n- After adding all the pricing, remove the list structure\
+            \ (i.e. remove all \"pages\" list, and must remain the items in the pricing\
+            \ JSON array)\n- Output only the completed spreadsheet-like JSON array.\n\
+            - Do not include explanations, markdown, notes, or extra text.\n\nYour\
+            \ response must be valid JSON."
+        - id: 42abee36-bcc5-4938-a918-0aed2620a50a
+          role: user
+          text: 'Fill the spreadsheet-like JSON array template using the pricing JSON
+            array.
+
+
+            Instructions:
+
+            - For each item, find the matching item in the pricing JSON array.
+
+            - Identify which fields in the spreadsheet-like JSON correspond to quantity,
+            unit, unit rate, and total amount, even if the field names differ.
+
+            - Populate those null fields using values from the pricing JSON array.
+
+            - Preserve all other content exactly, and must never delete any row in
+            the spreadsheet-like JSON array.
+
+            - At last, remove the "page []" list, but must not delete any items {}.
+
+            - Return only the completed spreadsheet-like JSON array as valid JSON.
+
+
+            Spreadsheet-like JSON array:
+
+            {{#17742659170060.text#}}
+
+
+            Pricing JSON array:
+
+            {{#1773676143894.output#}}'
+        selected: false
+        title: Combine Results
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1774107843985'
+      position:
+        x: 48.5132747533122
+        y: 1021.4155532440768
+      positionAbsolute:
+        x: 48.5132747533122
+        y: 1021.4155532440768
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The JSON string to convert.
+            ja_JP: The JSON string to convert.
+            pt_BR: The JSON string to convert.
+            zh_Hans: 要转换的JSON字符串。
+          label:
+            en_US: JSON String
+            ja_JP: JSON String
+            pt_BR: JSON String
+            zh_Hans: JSON字符串
+          llm_description: The JSON string to convert.
+          max: null
+          min: null
+          name: json_str
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The filename for the generated Excel file
+            ja_JP: The filename for the generated Excel file
+            pt_BR: The filename for the generated Excel file
+            zh_Hans: 生成的Excel文件的文件名
+          label:
+            en_US: Excel filename
+            ja_JP: Excel filename
+            pt_BR: Excel filename
+            zh_Hans: Excel文件名
+          llm_description: The filename that will be used for the generated Excel
+            file
+          max: null
+          min: null
+          name: filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          filename: ''
+          json_str: ''
+        plugin_id: qiangxinglin/excel_tools
+        plugin_unique_identifier: qiangxinglin/excel_tools:0.0.5@81147a24fa4dc871759a759bda9cf024efdba3c525815e40daba74bd7ee89c4b
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=eb212de4-1e40-4d54-a5a4-7b61b9bec0dc&filename=633fbc546fec8855ed43a00343339462654d57473a79fc63b2858c1462470672.svg
+        provider_id: qiangxinglin/excel_tools/excel_tools
+        provider_name: qiangxinglin/excel_tools/excel_tools
+        provider_type: builtin
+        selected: false
+        title: Json to Excel
+        tool_configurations: {}
+        tool_description: Convert Json to Excel.
+        tool_label: Json to Excel
+        tool_name: json2excel
+        tool_node_version: '2'
+        tool_parameters:
+          filename:
+            type: mixed
+            value: null
+          json_str:
+            type: mixed
+            value: '{{#1774107843985.text#}}'
+        type: tool
+      height: 52
+      id: '1774107933200'
+      position:
+        x: 409.94491444273785
+        y: 1021.4155532440768
+      positionAbsolute:
+        x: 409.94491444273785
+        y: 1021.4155532440768
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: File object to get download url.
+            ja_JP: ダウンロード URL を取得するファイルオブジェクト。
+            pt_BR: Objeto de arquivo para obter URL de download.
+            zh_Hans: 要获取下载 URL 的文件对象。
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: File
+          llm_description: ''
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: The text to use for the markdown link. Ignored if "format" is not
+              "markdown". Default is empty, which means the filename will be used
+              as the link text.
+            ja_JP: Markdown リンクに使用するテキスト。"format" が "markdown" でない場合は無視される。 デフォルトは空で、ファイル名がリンクテキストとして使用される。
+            pt_BR: O texto a ser usado para o link markdown. Ignorado se "format"
+              não for "markdown". O padrão é vazio, o que significa que o nome do
+              arquivo será usado como texto do link.
+            zh_Hans: 用于 Markdown 链接的文本。如果 "format" 不是 "markdown" 则忽略。 默认为空，这意味着文件名将用作链接文本。
+          label:
+            en_US: Link text for markdown link
+            ja_JP: Link text for markdown link
+            pt_BR: Link text for markdown link
+            zh_Hans: Link text for markdown link
+          llm_description: ''
+          max: null
+          min: null
+          name: link_text
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: plain
+          form: form
+          human_description:
+            en_US: Format of the download url. "markdown" for markdown link, "plain"
+              for plain url. Default is "plain".
+            ja_JP: ダウンロード URL の形式。Markdown リンクの場合は "markdown"、プレーン URL の場合は "plain"。
+              デフォルトは "plain"。
+            pt_BR: Formato da URL de download. "markdown" para link markdown, "plain"
+              para URL simples. O padrão é "plain".
+            zh_Hans: 下载 URL 的格式。"markdown" 表示 Markdown 链接，"plain" 表示纯 URL。 默认为 "plain"。
+          label:
+            en_US: Format of the download url
+            ja_JP: Format of the download url
+            pt_BR: Format of the download url
+            zh_Hans: Format of the download url
+          llm_description: ''
+          max: null
+          min: null
+          name: format
+          options:
+          - icon: ''
+            label:
+              en_US: markdown
+              ja_JP: markdown
+              pt_BR: markdown
+              zh_Hans: markdown
+            value: markdown
+          - icon: ''
+            label:
+              en_US: plain
+              ja_JP: plain
+              pt_BR: plain
+              zh_Hans: plain
+            value: plain
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          file: ''
+          format: ''
+          link_text: ''
+        plugin_id: kurokobo/file_tools
+        plugin_unique_identifier: kurokobo/file_tools:0.0.2@8bde7b4d2c30cf22e8f6ce851572af244f7a5776addab94330b820dc2160726c
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=eb212de4-1e40-4d54-a5a4-7b61b9bec0dc&filename=ee7d6c28060a54d022218fdf905d7111d02c37749d033c631e13651d6a1539d2.svg
+        provider_id: kurokobo/file_tools/file_tools
+        provider_name: kurokobo/file_tools/file_tools
+        provider_type: builtin
+        selected: false
+        title: Get Download URL
+        tool_configurations:
+          format:
+            type: constant
+            value: plain
+        tool_description: Get a download URL for a file object, optionally as a markdown
+          link.
+        tool_label: Get Download URL
+        tool_name: get_download_url
+        tool_node_version: '2'
+        tool_parameters:
+          file:
+            type: variable
+            value:
+            - '1774107933200'
+            - files
+          link_text:
+            type: mixed
+            value: ''
+        type: tool
+      height: 88
+      id: '1774107984499'
+      position:
+        x: 785.0711617596127
+        y: 1021.4155532440768
+      positionAbsolute:
+        x: 785.0711617596127
+        y: 1021.4155532440768
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1774107984499'
+          - text
+          value_type: string
+          variable: text
+        - value_selector:
+          - '1774107933200'
+          - files
+          value_type: array[file]
+          variable: files
+        - value_selector:
+          - '1774107843985'
+          - text
+          value_type: string
+          variable: text_1
+        selected: false
+        title: Output
+        type: end
+      height: 140
+      id: '1774107996657'
+      position:
+        x: 1175.867319215817
+        y: 1021.4155532440768
+      positionAbsolute:
+        x: 1175.867319215817
+        y: 1021.4155532440768
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1773676143894'
+        selected: false
+        template: '{{ arg1 }}'
+        title: Template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1774182343046'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 52
+      id: '1774182359840'
+      parentId: '1773676143894'
+      position:
+        x: 424.49643053781745
+        y: 66.3195079107729
+      positionAbsolute:
+        x: 473.00970529112965
+        y: 687.871202089379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1772387922489'
+          - text
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.1-flash-lite-preview
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 743a2f80-76fc-4fed-9fa1-7340ccad9c5c
+          role: system
+          text: "You receive a JSON array of row objects (from an Excel-like file).\
+            \  \nYou have two tasks:\n1. Split the rows into sequential pages named\
+            \ \"Page 1\", \"Page 2\", ...:\n2. Detect the \"quantity\", \"unit\",\
+            \ \"unit rate\", and \"total amount ($)\" field, and copy these four keys\
+            \ and values for a specific number of time.\n\nRule for the 1st task:\n\
+            A new page starts when you find a header-like row. Treat that header row\
+            \ as the first row of the new page.\nA header-like row is any row where,\
+            \ case-insensitively, one or more of these fields has its header text:\
+            \ \"Item\", \"Qty\", \"Unit\", \"Unit Rate\", or \"Total (HK$)\". (E.g.,\
+            \ \"Item\", \"ITEM\", \"item\" count as a match.)\nOnce you identified\
+            \ a header-like row, whenever the row appear again, you must start a new\
+            \ page.\nIf the input begins with non-header rows, include them in \"\
+            Page 1\".\nKeep the original row order and do not change row objects (no\
+            \ added/removed fields or value changes).\n\nRule for the 2nd task:\n\
+            Detect the key of the JSON array representing \"quantity\", \"unit\",\
+            \ \"unit rate\", and \"total amount ($)\" firstly.\nMake sure the number\
+            \ of set of \"quantity\", \"unit\", \"unit rate\", and \"total amount\
+            \ ($)\" keys in the result is equal to the number given.\nDo not change\
+            \ the key name, keep them as original.\nE.g. If the number given is 1,\
+            \ then no need to do the 2nd class. If the umber given is 2, copy the\
+            \ four keys one time. If the umber given is 3, copy the four keys two\
+            \ times.\nDo not delete any row, even if all the values are null.\n\n\
+            Output a single JSON object whose keys are \"Page 1\", \"Page 2\", ...\
+            \ and whose values are arrays of the original row objects.\nReturn only\
+            \ valid JSON (no extra text).\n\nExample of input:\nNumber given: 3\n\
+            JSON array received:\n[{\"Item\":null,\"Unnamed: 1\":null,\"Unnamed: 2\"\
+            :null,\"Qty\":null,\"Unit\":null,\"Unit Rate\":null,\"Total (HK$)\":null},{\"\
+            Item\":\"Item\",\"Unnamed: 1\":null,\"Unnamed: 2\":null,\"Qty\":\"Qty\"\
+            ,\"Unit\":\"Unit\",\"Unit Rate\":\"Unit Rate\",\"Total (HK$)\":\"Total\
+            \ (HK$)\"},{\"Item\":null,\"Unnamed: 1\":null,\"Unnamed: 2\":null,\"Qty\"\
+            :null,\"Unit\":null,\"Unit Rate\":null,\"Total (HK$)\":null}]\nThen, the\
+            \ output should be:\n{Page 1: [{\"Item\":null,\"Unnamed: 1\":null,\"Unnamed:\
+            \ 2\":null,\"Qty\":null,\"Unit\":null,\"Unit Rate\":null,\"Total (HK$)\"\
+            :null, \"Qty\":null,\"Unit\":null,\"Unit Rate\":null,\"Total (HK$)\":null,\
+            \ \"Qty\":null,\"Unit\":null,\"Unit Rate\":null,\"Total (HK$)\":null}],{Page\
+            \ 2: [{\"Item\":\"Item\",\"Unnamed: 1\":null,\"Unnamed: 2\":null,\"Qty\"\
+            :\"Qty\",\"Unit\":\"Unit\",\"Unit Rate\":\"Unit Rate\",\"Total (HK$)\"\
+            :\"Total (HK$)\",\"Qty\":\"Qty\",\"Unit\":\"Unit\",\"Unit Rate\":\"Unit\
+            \ Rate\",\"Total (HK$)\":\"Total (HK$)\",\"Qty\":\"Qty\",\"Unit\":\"Unit\"\
+            ,\"Unit Rate\":\"Unit Rate\",\"Total (HK$)\":\"Total (HK$)\"},{\"Item\"\
+            :null,\"Unnamed: 1\":null,\"Unnamed: 2\":null,\"Qty\":null,\"Unit\":null,\"\
+            Unit Rate\":null,\"Total (HK$)\":null,\"Qty\":null,\"Unit\":null,\"Unit\
+            \ Rate\":null,\"Total (HK$)\":null,\"Qty\":null,\"Unit\":null,\"Unit Rate\"\
+            :null,\"Total (HK$)\":null}]}"
+        - id: 3e244b94-c885-450f-8a00-8d1aff9873e7
+          role: user
+          text: 'You will receive a JSON array as the node input. Produce a single
+            JSON object mapping page names to arrays of row objects according to the
+            rules in the system prompt. Follow these specifics:
+
+            Treat the node input as either (A) a parsed JSON array or (B) a JSON string.
+            If it is a string, parse it first.
+
+            Start "Page 1" immediately; include any leading non-header rows in Page
+            1 before the first header-like row.
+
+            Output ONLY the JSON object (no surrounding text, code fences, or explanation).
+
+
+            Produce the JSON object now for the node input.
+
+
+            Number given: {{#1774334635779.count#}}
+
+            The JSON array: {{#1772387922489.text#}}'
+        selected: false
+        title: Seperate Spreadsheet Page (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '17742659170060'
+      position:
+        x: 1038.476631593129
+        y: 389.39584429109243
+      positionAbsolute:
+        x: 1038.476631593129
+        y: 389.39584429109243
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(my_list: list):\n    return {\n        \"count\": len(my_list)\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+        selected: false
+        title: Count Document Input
+        type: code
+        variables:
+        - value_selector:
+          - '1769935062552'
+          - Returned_Tender
+          value_type: array[file]
+          variable: my_list
+      height: 52
+      id: '1774334635779'
+      position:
+        x: 453.25342718173613
+        y: 360.3549558061132
+      positionAbsolute:
+        x: 453.25342718173613
+        y: 360.3549558061132
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 101.20890492935837
+      y: -85.73332451568865
+      zoom: 0.6710786444555675
+  rag_pipeline_variables: []
